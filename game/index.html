@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARUNIKA: Golden Hour</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23ff7a1a'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ffd34d'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="app.css">
+<script src="vendor/three.min.js"></script>
+</head>
+<body>
+<canvas id="game-canvas"></canvas>
+
+<!-- Mission card, top left -->
+<div id="mission-card" class="panel">
+  <div id="job-title">JOB 1/10 — FIRST FARE</div>
+  <div id="job-blurb">Pick up Sari at the pier and drive her to Marina Row.</div>
+  <div id="job-dist">0 m • 2:30</div>
+  <div class="stage-row"><span id="job-stage">STAGE 1/4</span><div class="stage-bar"><div id="job-stage-fill"></div></div></div>
+  <div id="job-next">NEXT: Reach waypoint 2 of 4.</div>
+</div>
+
+<!-- Radio pill, top center -->
+<div id="radio-top" class="pill">♪ SURYA 101.5 FM • Island Pop</div>
+
+<!-- Money / clock / wanted / rank, top right -->
+<div id="status-card" class="panel">
+  <div id="money">$1,250</div>
+  <div id="clock">16:00</div>
+  <div id="stars">★★★☆☆</div>
+  <div id="rank">STREET • 620 RP</div>
+</div>
+
+<!-- APD dispatch, left -->
+<div id="dispatch-panel" class="panel">
+  <div class="panel-head">APD DISPATCH — <span id="dispatch-count">0 UNITS</span> <span class="live">LIVE</span></div>
+  <div id="dispatch-list"></div>
+</div>
+
+<!-- Weapons, right -->
+<div id="weapon-panel" class="panel">
+  <div class="panel-head">WEAPONS</div>
+  <div id="weapon-list"></div>
+</div>
+
+<!-- Crew, right -->
+<div id="crew-panel" class="panel">
+  <div class="panel-head">CREW</div>
+  <div id="crew-list"></div>
+</div>
+
+<!-- Minimap + vitals, bottom left -->
+<div id="map-panel" class="panel">
+  <div id="district-label">Pantai Arunika</div>
+  <canvas id="minimap" width="180" height="180"></canvas>
+  <div class="bar-row"><span>HP</span><div class="bar"><div id="hp-fill"></div></div><span id="hp-num">100</span></div>
+  <div class="bar-row"><span>ARMOUR</span><div class="bar"><div id="armour-fill"></div></div><span id="armour-num">50</span></div>
+  <div class="bar-row"><span>CAR</span><div class="bar"><div id="car-fill"></div></div><span id="car-num">100</span></div>
+</div>
+
+<!-- Dialogue, bottom center -->
+<div id="dialogue" class="panel hidden">
+  <div id="dlg-speaker">SARI</div>
+  <div id="dlg-text"></div>
+</div>
+
+<!-- Speed, bottom right -->
+<div id="speed-panel" class="panel">
+  <div id="speed-num">0</div><div id="speed-unit">KM/H</div>
+  <div id="car-name">ARUNIKA GT</div>
+  <div id="car-cond">CONDITION 100%</div>
+  <div id="radio-bottom">♪ SURYA 101.5 — "Neon Tide — DJ Ombak"</div>
+</div>
+
+<div id="hints">WASD drive • E enter car • G garage • Z/X/C crew • M radio • F5 save</div>
+
+<!-- Garage menu -->
+<div id="garage-menu" class="panel hidden">
+  <div class="garage-title">ARUNIKA CUSTOMS</div>
+  <div class="garage-sub">Repaint — pick a colour</div>
+  <div id="paint-list"></div>
+  <button id="repair-btn" class="gold-btn">REPAIR — $50</button>
+  <button id="garage-exit" class="ghost-btn">EXIT GARAGE (G)</button>
+</div>
+
+<!-- Start screen -->
+<div id="start-screen" class="overlay">
+  <div class="overlay-inner">
+    <div class="game-title">ARUNIKA</div>
+    <div class="game-sub">GOLDEN HOUR</div>
+    <p class="story">Pulau Arunika, 4 PM. The sun is dropping, the APD is out, and Raka has
+    ten jobs before midnight. Drive the boulevard, outrun the dispatch, and
+    make the island yours.</p>
+    <p class="controls">WASD drive &nbsp;•&nbsp; E enter / steal car &nbsp;•&nbsp; G garage &nbsp;•&nbsp; Z/X/C crew
+    &nbsp;•&nbsp; 1–6 weapons &nbsp;•&nbsp; Click fire &nbsp;•&nbsp; M radio &nbsp;•&nbsp; F5 save &nbsp;•&nbsp; Esc pause</p>
+    <button id="start-btn" class="gold-btn big">START THE NIGHT</button>
+    <button id="continue-btn" class="ghost-btn big hidden">CONTINUE</button>
+  </div>
+</div>
+
+<!-- Pause screen -->
+<div id="pause-screen" class="overlay hidden">
+  <div class="overlay-inner">
+    <div class="game-title small">PAUSED</div>
+    <p class="story">The island waits. Press Esc to keep driving.</p>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

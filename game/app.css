@@ -1,0 +1,105 @@
+/* ARUNIKA: Golden Hour — app.css: dense glass HUD, amber on dark. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #1a1026; font-family: Arial, Helvetica, sans-serif; }
+#game-canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+.panel { position: fixed; background: rgba(10, 12, 22, 0.78); border: 1px solid rgba(255, 211, 77, 0.25);
+  border-radius: 10px; color: #f2f2f2; padding: 10px 12px; backdrop-filter: blur(2px); z-index: 5; }
+.panel-head { font-size: 12px; font-weight: bold; letter-spacing: 1px; color: #ffd34d; margin-bottom: 6px; }
+.hidden { display: none !important; }
+.live { background: #e63946; color: #fff; font-size: 9px; padding: 1px 5px; border-radius: 4px; margin-left: 4px; }
+
+#mission-card { top: 14px; left: 14px; width: 330px; }
+#job-title { color: #ffd34d; font-weight: bold; font-size: 17px; letter-spacing: 0.5px; }
+#job-blurb { font-size: 13px; color: #e8e8e8; margin-top: 4px; line-height: 1.35; }
+#job-dist { color: #4db2ff; font-weight: bold; font-size: 13px; margin-top: 5px; }
+.stage-row { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+#job-stage { color: #ffd34d; font-size: 12px; font-weight: bold; white-space: nowrap; }
+.stage-bar { flex: 1; height: 7px; background: #2a2f3a; border-radius: 4px; overflow: hidden; }
+#job-stage-fill { height: 100%; width: 25%; background: #ffd34d; }
+#job-next { font-size: 12px; color: #b9c0cc; font-style: italic; margin-top: 5px; }
+
+.pill { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); background: rgba(10, 12, 22, 0.8);
+  border: 1px solid rgba(255, 211, 77, 0.3); color: #ffd34d; font-size: 13px; font-weight: bold;
+  padding: 7px 16px; border-radius: 20px; z-index: 5; white-space: nowrap; }
+
+#status-card { top: 14px; right: 14px; width: 170px; text-align: right; }
+#money { color: #7ee081; font-size: 24px; font-weight: bold; }
+#clock { color: #dfe3ea; font-size: 14px; margin-top: 2px; }
+#stars { color: #ff3b30; font-size: 17px; letter-spacing: 2px; margin-top: 2px; }
+#rank { color: #ffd34d; font-size: 12px; font-weight: bold; margin-top: 2px; }
+
+#dispatch-panel { top: 190px; left: 14px; width: 300px; }
+.drow { display: flex; gap: 8px; font-size: 12.5px; padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.dname { font-weight: bold; width: 78px; }
+.drole { color: #b9c0cc; flex: 1; }
+.drole.rb { color: #ff8c42; font-weight: bold; }
+.ddist { color: #4db2ff; font-weight: bold; }
+.dmore { font-size: 11px; color: #b9c0cc; padding-top: 3px; }
+
+#weapon-panel { top: 150px; right: 14px; width: 210px; }
+.wrow { display: flex; gap: 8px; font-size: 13px; padding: 4px 6px; border-radius: 5px; align-items: center; }
+.wrow.sel { background: rgba(255, 211, 77, 0.22); outline: 1px solid #ffd34d; }
+.wnum { color: #ffd34d; font-weight: bold; width: 12px; }
+.wname { flex: 1; font-weight: bold; }
+.wammo { color: #4db2ff; font-weight: bold; }
+.wlock { color: #8a8f9a; font-size: 11px; }
+
+#crew-panel { top: 340px; right: 14px; width: 210px; }
+.crow { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 4px 0; }
+.chead { display: flex; justify-content: space-between; }
+.cname { color: #ffd34d; font-weight: bold; font-size: 13px; }
+.crole { color: #b9c0cc; font-size: 11px; }
+.cability { font-size: 12.5px; font-weight: bold; margin-top: 1px; }
+.ckey { color: #4db2ff; }
+.cdesc { font-size: 11px; color: #b9c0cc; }
+.cstate { font-size: 11px; font-weight: bold; margin-top: 1px; }
+.cstate.ready { color: #7ee081; }
+.cstate.cool { color: #ff8c42; }
+
+#map-panel { left: 14px; bottom: 14px; width: 208px; }
+#district-label { color: #ffd34d; font-size: 12px; font-weight: bold; margin-bottom: 5px; }
+#minimap { display: block; border-radius: 50%; background: #0e2f4a; }
+.bar-row { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #b9c0cc; margin-top: 5px; }
+.bar-row span:first-child { width: 44px; }
+.bar { flex: 1; height: 7px; background: #2a2f3a; border-radius: 4px; overflow: hidden; }
+.bar div { height: 100%; }
+#hp-fill { width: 100%; background: #7ee081; }
+#armour-fill { width: 50%; background: #4db2ff; }
+#car-fill { width: 100%; background: #ffd34d; }
+.bar-row span:last-child { width: 22px; text-align: right; color: #f2f2f2; }
+
+#dialogue { left: 50%; bottom: 90px; transform: translateX(-50%); max-width: 560px; }
+#dlg-speaker { color: #ffd34d; font-weight: bold; font-size: 13px; }
+#dlg-text { font-size: 14px; margin-top: 2px; line-height: 1.35; }
+
+#speed-panel { right: 14px; bottom: 14px; width: 210px; text-align: right; }
+#speed-num { font-size: 44px; font-weight: bold; line-height: 1; display: inline; }
+#speed-unit { display: inline; color: #ffd34d; font-weight: bold; font-size: 14px; margin-left: 4px; }
+#car-name { color: #7ee081; font-weight: bold; font-size: 14px; margin-top: 2px; }
+#car-cond { color: #7ee081; font-size: 12px; }
+#radio-bottom { color: #ffd34d; font-size: 11.5px; margin-top: 4px; }
+
+#hints { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.75);
+  background: rgba(10,12,22,0.6); padding: 5px 12px; border-radius: 14px; font-size: 11.5px; z-index: 5; white-space: nowrap; }
+
+#garage-menu { right: 14px; top: 190px; width: 250px; }
+.garage-title { color: #ffd34d; font-size: 17px; font-weight: bold; letter-spacing: 1px; }
+.garage-sub { font-size: 12px; color: #b9c0cc; margin: 4px 0 8px; }
+#paint-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.paint-btn { border: 1px solid rgba(255,255,255,0.35); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+  font-weight: bold; font-size: 11px; padding: 9px 4px; border-radius: 6px; cursor: pointer; }
+.gold-btn { display: block; width: 100%; background: #ffd34d; color: #1a1026; border: none; font-weight: bold;
+  font-size: 14px; padding: 11px; border-radius: 7px; cursor: pointer; margin-top: 8px; }
+.gold-btn.big { font-size: 17px; padding: 14px; }
+.ghost-btn { display: block; width: 100%; background: transparent; color: #ffd34d; border: 2px solid #ffd34d;
+  font-weight: bold; font-size: 13px; padding: 10px; border-radius: 7px; cursor: pointer; margin-top: 8px; }
+.ghost-btn.big { font-size: 15px; }
+
+.overlay { position: fixed; inset: 0; background: rgba(8, 6, 18, 0.72); display: flex; align-items: center;
+  justify-content: center; z-index: 20; }
+.overlay-inner { text-align: center; max-width: 620px; padding: 30px; }
+.game-title { color: #ffd34d; font-size: 64px; font-weight: bold; letter-spacing: 6px; line-height: 1; }
+.game-title.small { font-size: 44px; }
+.game-sub { color: #ff8c42; font-size: 22px; letter-spacing: 10px; margin-top: 4px; }
+.story { color: #e8e8e8; font-size: 15px; line-height: 1.55; margin: 18px 0; }
+.controls { color: #b9c0cc; font-size: 13px; line-height: 1.7; margin-bottom: 18px; }
